@@ -1,9 +1,9 @@
 #!/bin/bash
 
-rm nemesis_repo*
+rm yuunix_aur*
 
 echo "repo-add"
-repo-add -n -R nemesis_repo.db.tar.gz *.pkg.tar.zst
+repo-add -n -R yuunix_aur.db.tar.gz *.pkg.tar.zst
 sleep 5
 
 echo "####################################"
