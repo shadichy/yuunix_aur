@@ -3,7 +3,7 @@
 readonly arch=( "x86_64" "i386" )
 
 # Create symlink for packages in 'any' architecture
-for f in "./any/*.pkg.tar.*"; do
+for f in ./any/*.pkg.tar.*; do
     for a in "${arch[@]}"; do
         cd "${a}"
         ln -s ../"${f}" "$(basename ${f})"
