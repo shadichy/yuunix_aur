@@ -1,9 +1,22 @@
 #!/bin/bash
 
+readonly arch=( "x86_64" "i386" )
+
+# Create symlink for packages in 'any' architecture
+for f in "./any/*.pkg.tar.*"; do
+    for a in "${arch[@]}"; do
+        cd "${a}"
+        ln -s ../"${f}" "$(basename ${f})"
+        cd ..
+    done
+done
+
 # Creating the databases
-cd x86_64
-sh update_repo.sh
-cd ..
+for m in "${arch[@]}"; do
+    cd $m
+    sh update_repo.sh
+    cd ..
+done
 
 # Below command will backup everything inside the project folder
 git add --all .
